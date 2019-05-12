@@ -26,26 +26,43 @@ function initiateApp(){
 	makeGallery(pictures);
 	addModalCloseHandler();
 }
+
 function makeGallery(imageArray){
-	//use loops and jquery dom creation to make the html structure inside the #gallery section
+	
+//use loops and jquery dom creation to make the html structure inside the #gallery section
+
+	for (var figMaking = 0; figMaking < pictures.length; figMaking++) {
+		var figCreate = $('<figure>');
+		var figCapCreate = $('<figcaption>');
+		var fig1 = figCreate.addClass('imageGallery col-xs-12 col-sm-6 col-md-4').css('background-image', 'url('+pictures[figMaking]+')');
+		var text1 = ''+pictures[figMaking];
+		var textSlice = text1.slice(7, );
+		fig1.append(figCapCreate.text(textSlice));
+		$('section#gallery').append(fig1);
+	};
 
 	//create a loop to go through the pictures
 		//create the elements needed for each picture, store the elements in variable
-
 		//attach a click handler to the figure you create.  call the "displayImage" function.  
-
 		//append the element to the #gallery section
-
 }
 
 function addModalCloseHandler(){
-	//add a click handler to the img element in the image modal.  When the element is clicked, close the modal
-	//for more info, check here: https://www.w3schools.com/bootstrap/bootstrap_ref_js_modal.asp	
-}
+// 	//add a click handler to the img element in the image modal.  When the element is clicked, close the modal
+// 	//for more info, check here: https://www.w3schools.com/bootstrap/bootstrap_ref_js_modal.asp	
 
-function displayImage(){
-	//find the url of the image by grabbing the background-image source, store it in a variable
-	//grab the direct url of the image by getting rid of the other pieces you don't need
+	$(".modal-body").click(function(){
+		$("#galleryModal").modal("hide");
+	});
+};
+
+
+
+// 	//find the url of the image by grabbing the background-image source, store it in a variable
+// 	//grab the direct url of the image by getting rid of the other pieces you don't need
+
+  
+
 
 	//grab the name from the file url, ie the part without the path.  so "images/pexels-photo-132037.jpeg" would become
 		// pexels-photo-132037
@@ -56,7 +73,6 @@ function displayImage(){
 
 	//show the modal with JS.  Check for more info here: 
 	//https://www.w3schools.com/bootstrap/bootstrap_ref_js_modal.asp
-}
 
 
 
